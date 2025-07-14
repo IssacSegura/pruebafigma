@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change Education App - Wireframe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .screen {
+            background-color: white;
+            border: 2px solid #333;
+            border-radius: 8px;
+            width: 300px;
+            height: 600px;
+            margin: 20px;
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screen-title {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .screen-content {
+            padding: 20px;
+            height: calc(100% - 50px);
+            overflow-y: auto;
+        }
+
+        .form-field {
+            margin-bottom: 15px;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .form-field input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #999;
+            background-color: white;
+            color: #333;
+        }
+
+        .btn {
+            background-color: #333;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .btn-secondary {
+            background-color: #666;
+        }
+
+        .btn-outline {
+            background-color: white;
+            color: #333;
+            border: 2px solid #333;
+        }
+
+        .link {
+            color: #333;
+            text-decoration: underline;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .card {
+            background-color: #e0e0e0;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid #999;
+        }
+
+        .card-title {
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .bottom-nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #f0f0f0;
+            border-top: 1px solid #999;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+
+        .nav-item {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            background-color: #333;
+            margin: 0 auto 5px;
+            border-radius: 50%;
+        }
+
+        .nav-text {
+            font-size: 12px;
+            color: #333;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #e0e0e0;
+            border: 1px solid #999;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #666;
+            width: 50%;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .quiz-option {
+            background-color: #e0e0e0;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #999;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .quiz-option:hover {
+            background-color: #d0d0d0;
+        }
+
+        .textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 2px solid #999;
+            background-color: #f0f0f0;
+            resize: vertical;
+        }
+
+        .popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 2px solid #333;
+            padding: 20px;
+            width: 80%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .popup-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .flow-arrow {
+            position: absolute;
+            color: #333;
+            font-size: 12px;
+            font-weight: bold;
+            background-color: yellow;
+            padding: 5px;
+            border-radius: 3px;
+            z-index: 10;
+        }
+
+        .list-item {
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+            background-color: white;
+        }
+
+        .list-item:last-child {
+            border-bottom: none;
+        }
+
+        .module-text {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .interactive-btn {
+            background-color: #666;
+            color: white;
+            padding: 15px;
+            border: none;
+            width: 100%;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .challenge-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .challenge-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .challenge-buttons .btn {
+            flex: 1;
+        }
+
+        .title {
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center; margin-bottom: 30px; color: #333;">Climate Change Education App - Wireframe Prototype</h1>
+        
+        <!-- Screen 1: Login -->
+        <div class="screen">
+            <div class="screen-title">1. Login/Registro</div>
+            <div class="screen-content">
+                <div class="form-field">
+                    <label>Email</label>
+                    <input type="email" placeholder="usuario@email.com">
+                </div>
+                <div class="form-field">
+                    <label>Contraseña</label>
+                    <input type="password" placeholder="••••••••">
+                </div>
+                <button class="btn">Iniciar sesión</button>
+                <div class="link">¿No tienes cuenta? Registrarse</div>
+            </div>
+            <div class="flow-arrow" style="top: 520px; right: 10px;">Click aquí → Menú Principal</div>
+        </div>
+
+        <!-- Screen 2: Register -->
+        <div class="screen">
+            <div class="screen-title">1b. Registro</div>
+            <div class="screen-content">
+                <div class="form-field">
+                    <label>Nombre</label>
+                    <input type="text" placeholder="Tu nombre">
+                </div>
+                <div class="form-field">
+                    <label>Email</label>
+                    <input type="email" placeholder="usuario@email.com">
+                </div>
+                <div class="form-field">
+                    <label>Contraseña</label>
+                    <input type="password" placeholder="••••••••">
+                </div>
+                <button class="btn">Registrarse</button>
+                <div class="link">¿Ya tienes cuenta? Iniciar sesión</div>
+            </div>
+        </div>
+
+        <!-- Screen 3: Main Menu -->
+        <div class="screen">
+            <div class="screen-title">2. Menú Principal</div>
+            <div class="screen-content">
+                <div class="card">
+                    <div class="card-title">Causas</div>
+                    <div class="card-text">Aprende sobre las principales causas del cambio climático</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Consecuencias</div>
+                    <div class="card-text">Descubre los efectos del cambio climático</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Acciones sostenibles</div>
+                    <div class="card-text">Conoce cómo puedes ayudar al planeta</div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Inicio</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Retos</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Perfil</div>
+                </div>
+            </div>
+            <div class="flow-arrow" style="top: 100px; right: 10px;">Click tarjeta → Módulo Educativo</div>
+        </div>
+
+        <!-- Screen 4: Educational Module -->
+        <div class="screen">
+            <div class="screen-title">3. Módulo Educativo</div>
+            <div class="screen-content">
+                <div class="title">Causas del Cambio Climático</div>
+                <div class="module-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+                <div class="module-text">
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                </div>
+                <button class="interactive-btn">Actividad interactiva</button>
+            </div>
+            <div class="bottom-nav">
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Inicio</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Retos</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Perfil</div>
+                </div>
+            </div>
+            <div class="flow-arrow" style="top: 400px; right: 10px;">Click botón → Actividad Interactiva</div>
+        </div>
+
+        <!-- Screen 5: Interactive Activity -->
+        <div class="screen">
+            <div class="screen-title">4. Actividad Interactiva</div>
+            <div class="screen-content">
+                <div class="subtitle">Quiz - Pregunta 1 de 3</div>
+                <div class="title">¿Cuál es la principal causa del efecto invernadero?</div>
+                
+                <div class="quiz-option">A) Emisiones de CO2</div>
+                <div class="quiz-option">B) Deforestación</div>
+                <div class="quiz-option">C) Contaminación del agua</div>
+                
+                <button class="btn" style="margin-top: 20px;">Enviar respuesta</button>
+            </div>
+            <div class="bottom-nav">
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Inicio</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Retos</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Perfil</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 6: Weekly Challenges -->
+        <div class="screen">
+            <div class="screen-title">5. Retos Semanales</div>
+            <div class="screen-content">
+                <div class="card">
+                    <div class="card-title">Reto de la semana</div>
+                    <div class="challenge-description">
+                        Usa transporte público o bicicleta durante 3 días esta semana. Reduce tu huella de carbono y contribuye al planeta.
+                    </div>
+                    <div class="challenge-buttons">
+                        <button class="btn">Aceptar</button>
+                        <button class="btn btn-secondary">Completado</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">Reto anterior</div>
+                    <div class="challenge-description">
+                        Ahorra agua: cierra el grifo mientras te cepillas los dientes.
+                    </div>
+                    <div class="challenge-buttons">
+                        <button class="btn btn-secondary">Completado ✓</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Inicio</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Retos</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Perfil</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 7: User Profile -->
+        <div class="screen">
+            <div class="screen-title">6. Perfil de Usuario</div>
+            <div class="screen-content">
+                <div class="title">Mi Progreso</div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                    <div class="progress-text">50% completado</div>
+                </div>
+                
+                <div class="subtitle">Retos completados</div>
+                <div class="list-item">✓ Usar transporte público</div>
+                <div class="list-item">✓ Ahorrar agua</div>
+                <div class="list-item">✓ Reciclar papel</div>
+                <div class="list-item">✓ Reducir consumo eléctrico</div>
+                <div class="list-item">✓ Compostar residuos orgánicos</div>
+                
+                <div class="subtitle" style="margin-top: 20px;">Estadísticas</div>
+                <div class="card-text">Módulos completados: 2/3</div>
+                <div class="card-text">Puntos obtenidos: 150</div>
+            </div>
+            <div class="bottom-nav">
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Inicio</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Retos</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Perfil</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 8: Notification -->
+        <div class="screen">
+            <div class="screen-title">7. Notificación</div>
+            <div class="screen-content">
+                <div class="title">Menú Principal</div>
+                <div class="card">
+                    <div class="card-title">Causas</div>
+                    <div class="card-text">Aprende sobre las principales causas del cambio climático</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Consecuencias</div>
+                    <div class="card-text">Descubre los efectos del cambio climático</div>
+                </div>
+                
+                <div class="popup-overlay"></div>
+                <div class="popup">
+                    <div class="subtitle">Recordatorio</div>
+                    <div style="margin: 15px 0;">Recuerda: Usa transporte público hoy</div>
+                    <button class="btn">Cerrar</button>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Inicio</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Retos</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Perfil</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 9: Feedback Form -->
+        <div class="screen">
+            <div class="screen-title">8. Formulario de Feedback</div>
+            <div class="screen-content">
+                <div class="title">Tu opinión nos importa</div>
+                <div class="form-field">
+                    <label>Comparte tu experiencia con la app</label>
+                    <textarea class="textarea" placeholder="Escribe aquí tus comentarios y sugerencias..."></textarea>
+                </div>
+                <div class="form-field">
+                    <label>Calificación (1-5)</label>
+                    <input type="number" min="1" max="5" placeholder="5">
+                </div>
+                <button class="btn">Enviar feedback</button>
+            </div>
+            <div class="bottom-nav">
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Inicio</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Retos</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-icon"></div>
+                    <div class="nav-text">Perfil</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 40px; text-align: center; color: #666;">
+        <h3>Flujo de navegación:</h3>
+        <p>Login → Menú Principal → Módulo Educativo → Actividad Interactiva</p>
+        <p>Barra inferior: Inicio | Retos | Perfil</p>
+        <p>Notificaciones aparecen como pop-ups sobre cualquier pantalla</p>
+    </div>
+</body>
+</html>
